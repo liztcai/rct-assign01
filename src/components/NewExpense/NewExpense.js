@@ -5,13 +5,7 @@ import ExpenseForm from "./ExpenseForm";
 import Button from "../UI/Button";
 
 function NewExpense(props) {
-  const [newExpense, setNewExpense] = useState(
-    <Button
-      className="btn__center"
-      title="Add New Expense"
-      clicked={clickedHandler}
-    />
-  );
+  const [isEditing, setIsEditing] = useState(false);
 
   function saveExpenseDataHandler(expenseData) {
     const newExpenseData = {
@@ -22,26 +16,30 @@ function NewExpense(props) {
   }
 
   function cancelClickedHandler() {
-    setNewExpense(
-      <Button
-        className="btn__center"
-        title="Add New Expense"
-        clicked={clickedHandler}
-      />
-    );
+    setIsEditing(false);
   }
 
   function clickedHandler() {
-    console.log("clicked");
-    setNewExpense(
-      <ExpenseForm
-        onSaveExpenseData={saveExpenseDataHandler}
-        onCancelClickedHandler={cancelClickedHandler}
-      />
-    );
+    setIsEditing(true);
   }
 
-  return <div className="new-expense">{newExpense}</div>;
+  return (
+    <div className="new-expense">
+      {!isEditing && (
+        <Button
+          className="btn__center"
+          title="Add New Expense"
+          clicked={clickedHandler}
+        />
+      )}
+      {isEditing && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          onCancelClickedHandler={cancelClickedHandler}
+        />
+      )}
+    </div>
+  );
 }
 
 export default NewExpense;
