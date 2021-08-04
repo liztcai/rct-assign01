@@ -28,13 +28,10 @@ function App() {
       date: new Date(2021, 2, 20),
     },
   ];
-
-  function addExpenseHandler(expense) {
-    console.log(expense);
-  }
+ 
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      <NewExpense />
       <Expenses expenses={expenses} />
     </div>
   );
