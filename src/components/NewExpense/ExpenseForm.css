@@ -24,3 +24,11 @@
 .new-expense__actions {
   text-align: right;
 }
+
+.new-expense__actions--inline {
+   display: flex;
+}
+
+.new-expense__actions--display-right {
+   justify-content: flex-end;
+}

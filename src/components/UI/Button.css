@@ -1,0 +1,12 @@
+.btn {
+  text-align: right;
+}
+
+.btn__center {
+  text-align: center;
+}
+
+.btn__cancel button {
+  background-color: rgba(255, 255, 255, 0.781);
+  color: black;
+}

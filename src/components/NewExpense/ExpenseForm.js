@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import "./ExpenseForm.css";
+import Button from "../UI/Button";
 
 function ExpenseForm(props) {
   const [inputTitle, setInputTitle] = useState("");
@@ -91,8 +92,13 @@ function ExpenseForm(props) {
           />
         </div>
       </div>
-      <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
+      <div className="new-expense__actions new-expense__actions--inline new-expense__actions--display-right">
+        <Button
+          className="btn__cancel"
+          clicked={props.onCancelClickedHandler}
+          title="Cancel"
+        />
+        <Button className="btn" type="submit" title="Add Expense" />
       </div>
     </form>
   );
